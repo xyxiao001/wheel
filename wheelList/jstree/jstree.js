@@ -15,8 +15,9 @@ var jstree = function (dom, data) {
 jstree.prototype.start = function () {
   this.create()
   var that = this
-  this.queryAll('.jstree-item').forEach(function (val) {
-    val.addEventListener('click', function () {
+  var list = this.queryAll('.jstree-item')
+  for (var i = 0; i < list.length; i++) {
+    list[i].addEventListener('click', function () {
       var i = this.childNodes[0].childNodes[0]
       var id = this.getAttribute('myId')
       if (i.getAttribute('class') === 'down') {
@@ -37,7 +38,8 @@ jstree.prototype.start = function () {
         })
       }
     })
-  })
+  }
+  // .forEach(function (val) {
 }
 
 jstree.prototype.create = function () {
