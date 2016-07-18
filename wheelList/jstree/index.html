@@ -95,14 +95,68 @@
               myId: 12,
               son: [
                 {
-                  name: '小米1',
+                  name: '小米系列',
                   parentId: 12,
                   myId: 13,
+                  son: [
+                    {
+                      name: '小米1',
+                      parentId: 13,
+                      myId: 14,
+                    },
+                    {
+                      name: '小米2',
+                      parentId: 13,
+                      myId: 15,
+                    },
+                    {
+                      name: '小米3',
+                      parentId: 13,
+                      myId: 16,
+                    },
+                    {
+                      name: '小米4',
+                      parentId: 13,
+                      myId: 17,
+                    },
+                    {
+                      name: '小米5',
+                      parentId: 13,
+                      myId: 18,
+                    }
+                  ]
                 },
                 {
-                  name: '小米2',
+                  name: '红米系列',
                   parentId: 12,
-                  myId: 14,
+                  myId: 20,
+                  son: [
+                    {
+                      name: '红米1',
+                      parentId: 20,
+                      myId: 21,
+                    },
+                    {
+                      name: '红米1s',
+                      parentId: 20,
+                      myId: 22,
+                    },
+                    {
+                      name: '红米2',
+                      parentId: 20,
+                      myId: 23,
+                    },
+                    {
+                      name: '红米2s',
+                      parentId: 20,
+                      myId: 24,
+                    },
+                    {
+                      name: '红米3s',
+                      parentId: 20,
+                      myId: 25,
+                    }
+                  ]
                 }
               ]
             }
@@ -111,12 +165,41 @@
         {
           name: '电脑',
           parentId: 0,
-          myId: 1000
+          myId: 1000,
+          son: [
+            {
+              name: '笔记本系列',
+              parentId: 1000,
+              myId: 1001,
+              son: []
+            },
+            {
+              name: '台式机系列',
+              parentId: 1000,
+              myId: 1100,
+              son: []
+            }
+          ]
         },
         {
           name: '电视机',
           parentId: 0,
-          myId: 2000
+          myId: 2000,
+          son: [
+            {
+              name: '长虹',
+              parentId: 2000,
+              myId: 2100,
+              son: []
+            },
+            {
+              name: '台式机系列',
+              parentId: 2000,
+              myId: 2200,
+              son: []
+            }
+          ]
+
         },
       ]
       // 指定位置 初始化
