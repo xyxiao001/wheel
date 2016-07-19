@@ -56,8 +56,11 @@
      calendarDate.month = this.date.getUTCMonth() + 1
      calendarDate.day = this.date.getDate()
      calendarDate.week = weeks[this.date.getDay() - 1]
+     calendarDate.Alldays = this.days(calendarDate.year, calendarDate.month)
      // 左边绘制时间
      this.justLeft(calendarDate, left)
+     // 右边开始绘制哦
+     this.justRight(calendarDate, right)
    }
 
    //左边最初
@@ -76,6 +79,78 @@
      showDay.innerHTML = date.month + '月' + date.day + '日'
      showDay.className = 'show-day'
      left.appendChild(showDay)
+   }
+
+   // 右边最初
+   justRight (date, right) {
+     // 上方控制
+     var controle = this.createEl('div')
+     // 向左图标 控制月份减一
+     var reduce = this.createEl('i')
+     // 向右图标 控制月份加一
+     var add = this.createEl('i')
+     // 显示当前年月
+     var now = this.createEl('a')
+     controle.className = 'controle'
+     reduce.className = 'fa fa-chevron-left'
+     reduce.setAttribute('aria-hidden', true)
+     add.className = 'fa fa-chevron-right'
+     add.setAttribute('aria-hidden', true)
+     now.className = 'controle-show'
+     now.innerHTML = date.year + '/' +  date.month
+     controle.appendChild(reduce)
+     controle.appendChild(now)
+     controle.appendChild(add)
+     right.appendChild(controle)
+     // 下面的日历
+     this.dateTable(right, date)
+   }
+
+   // 右边的下面日历
+   dateTable (right, date) {
+     var that = this
+     var table = this.createEl('table')
+     var thead = this.createEl('thead')
+     var tr = this.createEl('tr')
+     var header = ['一', '二', '三', '四', '五', '六', '日']
+     header.forEach(function (val) {
+       var th = that.createEl('th')
+       th.innerHTML = val
+       tr.appendChild(th)
+     })
+     thead.appendChild(tr)
+     table.appendChild(thead)
+
+
+
+     right.appendChild(table)
+   }
+
+   //返回当前月的天数
+   days (year, month) {
+     var days = 30
+     switch (month) {
+       case 1:
+       case 3:
+       case 5:
+       case 7:
+       case 8:
+       case 10:
+         days = 31
+         break
+       case 2:
+         if (year % 4 ===  0 && year % 100 !==  0) {
+           days = 29
+         } else {
+           if (year % 400 === 0) {
+             days = 29
+           } else {
+             days = 28
+           }
+         }
+         break
+     }
+     return days
    }
 
    // 自己封装选择器
