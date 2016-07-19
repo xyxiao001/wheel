@@ -146,10 +146,7 @@
 
 .right table tr th,td {
   padding: 0;
-  width: 30px;
   height: 30px;
-  background-color: black;
-  border-radius: 30px;
 }
 
 .right table thead {

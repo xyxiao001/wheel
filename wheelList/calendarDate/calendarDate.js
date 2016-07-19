@@ -120,6 +120,8 @@
      })
      thead.appendChild(tr)
      table.appendChild(thead)
+     // 得到第一天是周几
+     var firstDay = new Date(calendarDate.year + "/" + calendarDate.month + "/" + 1).getDay()
 
 
 
