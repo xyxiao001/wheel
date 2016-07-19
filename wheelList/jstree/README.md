@@ -2,7 +2,7 @@
 
 ### 数据格式要求
 
-[https://github.com/xyxiao001/wheel/tree/master/wheelList/jstree/1.png](如图)
+![](1.png)
 
 {
   {
