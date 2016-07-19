@@ -4,9 +4,13 @@
    // 初始化执行函数
    constructor (dom) {
      this.dom = dom
+     // calendar 表示日历还没有创建
+     this.calendar = false
+     this.dis = false
    }
    // 开始
    start () {
+     var that = this
      var inputbox = this.createEl('div')
      inputbox.className = 'inputbox'
      var input = this.createEl('input')
@@ -18,6 +22,32 @@
      inputbox.appendChild(input)
      inputbox.appendChild(i)
      this.dom.appendChild(inputbox)
+     this.query('.inputbox', true).addEventListener('click', function () {
+       if (!that.calendar && !that.dis) {
+         that.create()
+       } else if (that.dis) {
+         that.hide(that.query('.calendar', true))
+         that.dis = false
+       } else {
+         that.show(that.query('.calendar', true))
+         that.dis = true
+       }
+     })
+   }
+
+   // 创建日历
+   create () {
+     this.calendar = true
+     this.dis = true
+     var pickes = this.createEl('div')
+     pickes.className = 'calendar'
+     var left = this.createEl('div')
+     left.className = 'left'
+     var right = this.createEl('div')
+     right.className = 'right'
+     pickes.appendChild(left)
+     pickes.appendChild(right)
+     this.dom.appendChild(pickes)
    }
 
    // 自己封装选择器
@@ -63,4 +93,13 @@
      var newList = list.join(' ')
      el.className = newList
    }
+
+   hide (el) {
+      el.style.display = 'none'
+   }
+
+   show (el) {
+     el.style.display = ''
+   }
+
  }
