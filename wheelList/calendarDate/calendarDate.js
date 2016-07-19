@@ -7,6 +7,7 @@
      // calendar 表示日历还没有创建
      this.calendar = false
      this.dis = false
+     this.date = new Date()
    }
    // 开始
    start () {
@@ -48,6 +49,33 @@
      pickes.appendChild(left)
      pickes.appendChild(right)
      this.dom.appendChild(pickes)
+     // 获取当前时间对象
+     var calendarDate = {}
+     var weeks = ['一', '二', '三', '四', '五', '六', '日']
+     calendarDate.year = this.date.getFullYear()
+     calendarDate.month = this.date.getUTCMonth() + 1
+     calendarDate.day = this.date.getDate()
+     calendarDate.week = weeks[this.date.getDay() - 1]
+     // 左边绘制时间
+     this.justLeft(calendarDate, left)
+   }
+
+   //左边最初
+   justLeft (date, left) {
+     var showYear = this.createEl('a')
+     showYear.innerHTML = date.year
+     showYear.className = 'show-year'
+     left.appendChild(showYear)
+
+     var showWeek = this.createEl('a')
+     showWeek.innerHTML = '星期' + date.week
+     showWeek.className = 'show-week'
+     left.appendChild(showWeek)
+
+     var showDay = this.createEl('a')
+     showDay.innerHTML = date.month + '月' + date.day + '日'
+     showDay.className = 'show-day'
+     left.appendChild(showDay)
    }
 
    // 自己封装选择器

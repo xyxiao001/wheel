@@ -68,11 +68,10 @@
 }
 
 .calendar .left {
-  display: inline-block;
+  float: left;
   width: 35%;
   height: 100%;
   background-color: #009688;
-  z-index: 1000;
   box-shadow: -10px 0px 20px rgba(0, 0, 0, .25);
 }
 
@@ -81,6 +80,28 @@
   width: 65%;
   height: 100%;
   background-color: white;
-  z-index: 1000;
   box-shadow: 10px 2px 20px rgba(0, 0, 0, .25);
+}
+
+.left>a {
+  color: white;
+  display: block;
+  padding-left: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.left a.show-year {
+  margin-top: 15px;
+  margin-left: 5px;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.left a.show-week {
+  font-size: 30px;
+}
+
+.left a.show-day {
+  font-size: 40px;
 }
