@@ -1,0 +1,27 @@
+.inputbox {
+  position: relative;
+  margin: 0;
+  width: 210px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.inputbox input.calendarDate {
+  width: 170px;
+  height: 30px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 35px;
+  cursor: pointer;
+}
+
+.inputbox i {
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+}

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>时间选择插件</title>
+    <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="calendarDate.css">
     <style media="screen">
       #main {
@@ -13,7 +14,14 @@
     </style>
   </head>
   <body>
-    <div id="main">calendarDate</div>
+    <div id="main"></div>
     <script src="calendarDate.js"></script>
+    <script type="text/javascript">
+    'use strict'
+      var main = document.querySelector('#main')
+      var calendar = new CalendarDate(main)
+      // 启动日历插件
+      calendar.start()
+    </script>
   </body>
 </html>
