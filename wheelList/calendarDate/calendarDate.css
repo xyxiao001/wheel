@@ -83,6 +83,7 @@
   height: 100%;
   background-color: white;
   box-shadow: 10px 2px 20px rgba(0, 0, 0, .25);
+  overflow: hidden;
 }
 
 .left>a {
@@ -145,6 +146,49 @@
   margin-top: 10px;
   width: 100%;
 }
+
+.right table.animate {
+  animation: show-table 0.5s ease-out;
+}
+
+@keyframes show-table {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.right table.left-animate {
+  animation: show-left 0.5s ease-out;
+}
+
+.right table.right-animate {
+  animation: show-right 0.5s ease-out;
+}
+
+@keyframes show-left {
+  0% {
+    margin-left: 300px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes show-right {
+  0% {
+    margin-left: -300px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
 
 .right table tr th,td {
   padding: 0;

@@ -84,8 +84,9 @@ class CalendarDate {
   }
 
    // 右边最初
-  justRight (date, right, left) {
+  justRight (date, right, left, animate) {
     right.innerHTML = ''
+    var that = this
     // 上方控制
     var controle = this.createEl('div')
     // 向左图标 控制月份减一
@@ -106,7 +107,7 @@ class CalendarDate {
     controle.appendChild(add)
     right.appendChild(controle)
     // 下面的日历
-    this.dateTable(right, date, left)
+    this.dateTable(right, date, left, animate)
 
     // 下方控件
     var footer = this.createEl('div')
@@ -120,9 +121,18 @@ class CalendarDate {
     footer.appendChild(today)
     footer.appendChild(ok)
     right.appendChild(footer)
-
+    today.addEventListener('click', function () {
+      var now = new Date()
+      var weeks = ['一', '二', '三', '四', '五', '六', '日']
+      date.year = now.getFullYear()
+      date.month = now.getUTCMonth() + 1
+      date.day = now.getDate()
+      date.week = weeks[now.getDay() - 1]
+      date.Alldays = that.days(date.year, date.month)
+      that.justRight(date, right, left, 'animate')
+      that.justLeft(date, left, right)
+    })
     //月份减少
-    var that = this
     this.query('.right .go-left', true).addEventListener('click', function () {
       if (date.month > 1) {
         date.month = date.month - 1
@@ -131,6 +141,7 @@ class CalendarDate {
         date.year = date.year - 1
         date.month = 12
       }
+      date.day = 1
       date.Alldays = that.days(date.year, date.month)
       var weeks = ['一', '二', '三', '四', '五', '六', '日']
       var news = new Date(date.year + '/' + date.month + '/' + date.day)
@@ -139,7 +150,7 @@ class CalendarDate {
         newWeek = 7
       }
       date.week = weeks[newWeek - 1]
-      that.justRight(date, right, left)
+      that.justRight(date, right, left, 'left-animate')
       that.justLeft(date, left, right)
     })
 
@@ -157,15 +168,18 @@ class CalendarDate {
       if (newWeek === 0) {
         newWeek = 7
       }
+      date.day = 1
       date.week = weeks[newWeek - 1]
       date.Alldays = that.days(date.year, date.month)
-      that.justRight(date, right, left)
+      that.justRight(date, right, left, 'right-animate')
       that.justLeft(date, left, right)
     })
+    // 绑定其他事件处理
+    this.another(date, left, right)
   }
 
    // 右边的下面日历
-  dateTable (right, date, left) {
+  dateTable (right, date, left, animate) {
    var that = this
    var table = this.createEl('table')
    var thead = this.createEl('thead')
@@ -178,6 +192,7 @@ class CalendarDate {
    })
    thead.appendChild(tr)
    table.appendChild(thead)
+   table.className = animate
    // 得到第一天是周几
    var tbody = this.createEl('tbody')
    var firstDay = new Date(date.year + "/" +  date.month + "/" + 1).getDay()
@@ -244,6 +259,10 @@ class CalendarDate {
        break
    }
    return days
+  }
+
+  // 很多其他处理事件
+  another (date, left, right) {
   }
 
    // 自己封装选择器
