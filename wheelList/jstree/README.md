@@ -1,8 +1,17 @@
 ## 来一个无限扩展菜单插件   类似于展开
-
+[地址](https://xyxiao001.github.io/wheel/wheelList/jstree/index.html)
 ### 数据格式要求
+
+<code><pre>
+  引入jstree
+  实例化  var a = new jstree('传入你想要放的dom',  '这个是数据')
+  启动   a.start()
+
+</code></pre>
+![](1.png)
 <pre><code>
 var data = [
+{
   {
     name: '手机',
     parentId: 0, //如果是一级菜单  那么parentId 为零
@@ -90,11 +99,4 @@ var data = [
     myId: 2000
   },
 ]
-</code></pre>
-
-<code><pre>
-  引入jstree
-  实例化  var a = new jstree('传入你想要放的dom',  '这个是数据')
-  启动   a.start()
-
 </code></pre>
