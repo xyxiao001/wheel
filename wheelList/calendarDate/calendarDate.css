@@ -75,6 +75,7 @@
   height: 100%;
   background-color: #009688;
   box-shadow: -10px 0px 20px rgba(0, 0, 0, .25);
+  overflow: hidden;
 }
 
 .calendar .right {
@@ -91,7 +92,7 @@
   display: block;
   padding-left: 20px;
   margin-top: 5px;
-  cursor: pointer;
+  transition: all 0.5s ease-out;
 }
 
 .left a.show-year {
@@ -99,6 +100,11 @@
   margin-left: 5px;
   font-size: 20px;
   opacity: 0.8;
+  cursor: pointer;
+}
+
+.left a.show-year:hover {
+  color: black;
 }
 
 .left a.show-week {
@@ -109,6 +115,11 @@
 .left a.show-day {
   margin-top: 10px;
   font-size: 40px;
+  cursor: pointer;
+}
+
+.left a.show-day:hover {
+  color: black;
 }
 
 .right .controle {
@@ -116,6 +127,68 @@
   width: 90%;
   height: 30px;
   padding-top: 10px;
+}
+
+.left .select-year, .select-month {
+  width: 100%;
+  height: auto;
+  animation: show-year 0.5s ease-out;
+}
+
+@keyframes show-year {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.left .select-year .year-item, .year-control, .month-item {
+  display: inline-block;
+  width: 100%;
+  height: 22px;
+  padding: 5px;
+  font-size: 20px;
+  color: white;
+  opacity: 0.8;
+  cursor: pointer;
+  text-align: center;
+}
+
+.left .select-year .year-item:hover, .year-control:hover{
+  color: black;
+}
+
+.left .select-month {
+  margin-top: 20px;
+  animation: show-month 0.5s ease-out;
+}
+
+@keyframes show-month {
+  0% {
+    margin-left: -200px;
+  }
+
+  100% {
+    margin-left: 0px;
+  }
+}
+
+.left .select-month .month-item {
+  padding-top: 10px;
+  height: 40px;
+  width: 40%;
+  color: white;
+  opacity: 0.8;
+}
+
+
+.left .select-month .month-item:hover {
+  color: black;
 }
 
 .right .controle>i {
@@ -162,11 +235,11 @@
 }
 
 .right table.left-animate {
-  animation: show-left 0.5s ease-out;
+  animation: show-left 0.25s ease-out;
 }
 
 .right table.right-animate {
-  animation: show-right 0.5s ease-out;
+  animation: show-right 0.25s ease-out;
 }
 
 @keyframes show-left {

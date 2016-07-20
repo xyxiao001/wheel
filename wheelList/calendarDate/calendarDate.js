@@ -68,6 +68,7 @@ class CalendarDate {
   justLeft (date, left, right) {
    left.innerHTML = ''
    var showYear = this.createEl('a')
+   var that = this
    showYear.innerHTML = date.year
    showYear.className = 'show-year'
    left.appendChild(showYear)
@@ -81,8 +82,111 @@ class CalendarDate {
    showDay.innerHTML = date.month + '月' + date.day + '日'
    showDay.className = 'show-day'
    left.appendChild(showDay)
+
+   //年份选择
+   showYear.addEventListener('click', function () {
+     that.hide(showWeek)
+     that.hide(showDay)
+     if (showYear.innerHTML !== '去选月') {
+       showYear.innerHTML = '去选月'
+       // 创建年份的东西
+       if (that.query('.select-month', true)) {
+         that.hide(that.query('.select-month', true))
+       }
+       that.selectYear(date, left, right)
+     } else {
+       showYear.innerHTML = '去选年'
+       // 创建年份的东西
+       if (that.query('.select-year', true)) {
+         that.hide(that.query('.select-year', true))
+       }
+       that.selectMonth(date, left, right)
+     }
+   })
   }
 
+  // 年份选择
+  selectYear (date, left, right) {
+    if (!this.query('.select-year', true)) {
+      var that = this
+      var div = this.createEl('div')
+      div.className = 'select-year'
+      for (var i = date.year - 1; i < date.year + 10; i++) {
+        if (i === date.year - 1) {
+          var upC = this.createEl('a')
+          var up = this.createEl('i')
+          up.className = 'fa fa-chevron-up'
+          upC.className = 'year-control'
+          upC.appendChild(up)
+          div.appendChild(upC)
+        } else if (i === date.year + 9) {
+          var downC = this.createEl('a')
+          var down = this.createEl('i')
+          down.className = 'fa fa-chevron-down'
+          downC.className = 'year-control'
+          downC.appendChild(down)
+          div.appendChild(downC)
+        } else {
+          var a = this.createEl('a')
+          a.className = 'year-item'
+          a.innerHTML = i
+          div.appendChild(a)
+        }
+      }
+      left.appendChild(div)
+
+      // 往下年份
+      downC.addEventListener('click', function () {
+        Array.of(that.query('.year-item'))[0].forEach(function (val) {
+          val.innerHTML = parseInt(val.innerHTML) + 9
+        })
+      })
+
+      // 网上
+      upC.addEventListener('click', function () {
+        Array.of(that.query('.year-item'))[0].forEach(function (val) {
+          val.innerHTML = parseInt(val.innerHTML) - 9
+        })
+      })
+
+
+      // 年份被点击
+      Array.of(that.query('.year-item'))[0].forEach(function (val) {
+        val.addEventListener('click', function () {
+          date.year = this.innerHTML
+          that.justRight(date, right, left, 'animate')
+        })
+      })
+    } else {
+      this.show(this.query('.select-year', true))
+    }
+  }
+
+  // 月份选择
+  selectMonth (date, left, right) {
+    var that = this
+    if (!this.query('.select-month', true)) {
+      var div = this.createEl('div')
+      div.className = 'select-month'
+      for (var i = 1; i <= 12; i++) {
+        var a = this.createEl('a')
+        a.innerHTML = i + '月'
+        a.className = 'month-item'
+        div.appendChild(a)
+      }
+      left.appendChild(div)
+    } else {
+      this.show(this.query('.select-month', true))
+    }
+
+    // 月份选择
+    Array.of(that.query('.month-item'))[0].forEach(function (val, index) {
+      val.addEventListener('click', function () {
+        date.month = index + 1
+        that.justRight(date, right, left, 'animate')
+      })
+    })
+  }
    // 右边最初
   justRight (date, right, left, animate) {
     right.innerHTML = ''
@@ -132,6 +236,13 @@ class CalendarDate {
       that.justRight(date, right, left, 'animate')
       that.justLeft(date, left, right)
     })
+    // 确定
+    ok.addEventListener('click', function () {
+      that.hide(that.query('.calendar', true))
+      that.dis = false
+      that.query('.inputbox>.calendarDate', true).value = date.year + '年' + date.month + '月' + date.day + '日'
+      that.justLeft(date, left, right)
+    })
     //月份减少
     this.query('.right .go-left', true).addEventListener('click', function () {
       if (date.month > 1) {
@@ -163,19 +274,17 @@ class CalendarDate {
         date.month = 1
       }
       var weeks = ['一', '二', '三', '四', '五', '六', '日']
+      date.day = 1
       var news = new Date(date.year + '/' + date.month + '/' + date.day)
       var newWeek = news.getDay()
       if (newWeek === 0) {
         newWeek = 7
       }
-      date.day = 1
       date.week = weeks[newWeek - 1]
       date.Alldays = that.days(date.year, date.month)
       that.justRight(date, right, left, 'right-animate')
       that.justLeft(date, left, right)
     })
-    // 绑定其他事件处理
-    this.another(date, left, right)
   }
 
    // 右边的下面日历
@@ -192,7 +301,7 @@ class CalendarDate {
    })
    thead.appendChild(tr)
    table.appendChild(thead)
-   table.className = animate
+   table.className = animate ? animate : ''
    // 得到第一天是周几
    var tbody = this.createEl('tbody')
    var firstDay = new Date(date.year + "/" +  date.month + "/" + 1).getDay()
@@ -259,10 +368,6 @@ class CalendarDate {
        break
    }
    return days
-  }
-
-  // 很多其他处理事件
-  another (date, left, right) {
   }
 
    // 自己封装选择器
