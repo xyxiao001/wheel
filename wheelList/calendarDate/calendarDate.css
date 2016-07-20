@@ -42,25 +42,25 @@
   0% {
     top: -50px;
     opacity: 0;
-    transform: rotate(3deg);
+    /*transform: rotate(3deg);*/
   }
 
   25% {
     top: -25px;
     opacity: 0.25;
-    transform: rotate(-3deg);
+    /*transform: rotate(-3deg);*/
   }
 
   50% {
     top: 0px;
     opacity: 0.5;
-    transform: rotate(3deg);
+    /*transform: rotate(3deg);*/
   }
 
   75% {
     top: 25px;
     opacity: 0.75;
-    transform: rotate(-3deg);
+    /*transform: rotate(-3deg);*/
   }
 
   100% {
