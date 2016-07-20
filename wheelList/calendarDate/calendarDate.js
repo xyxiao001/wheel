@@ -106,16 +106,18 @@ class CalendarDate {
     controle.appendChild(add)
     right.appendChild(controle)
     // 下面的日历
-    this.dateTable(right, date)
+    this.dateTable(right, date, left)
 
     // 下方控件
     var footer = this.createEl('div')
     footer.className = 'calendarDate-footer'
-    var cancel = this.createEl('a')
-    cancel.innerHTML = '取消'
+    var today = this.createEl('a')
+    today.innerHTML = '今天'
+    today.className = 'go-today'
     var ok = this.createEl('a')
     ok.innerHTML = '确定'
-    footer.appendChild(cancel)
+    ok.className = 'go-time'
+    footer.appendChild(today)
     footer.appendChild(ok)
     right.appendChild(footer)
 
@@ -163,7 +165,7 @@ class CalendarDate {
   }
 
    // 右边的下面日历
-  dateTable (right, date) {
+  dateTable (right, date, left) {
    var that = this
    var table = this.createEl('table')
    var thead = this.createEl('thead')
@@ -188,14 +190,26 @@ class CalendarDate {
        var tr = this.createEl('tr')
      }
      var td = this.createEl('td')
-     var a = this.createEl('a')
      if (i >= firstDay - 1) {
+       var a = this.createEl('a')
        a.innerHTML = value
+       if (value === date.day) {
+         a.className = 'choose'
+       }
+       td.appendChild(a)
+       a.addEventListener('click', function () {
+         var weeks = ['一', '二', '三', '四', '五', '六', '日']
+         var news = new Date(date.year + '/' + date.month + '/' + date.day)
+         var newWeek = news.getDay()
+         if (newWeek === 0) {
+           newWeek = 7
+         }
+         date.week = weeks[newWeek - 1]
+         date.day = parseInt(this.innerHTML)
+         that.justRight(date, right, left)
+         that.justLeft(date, left, right)
+       })
      }
-     if (value === date.day && date.month === this.calendarDate.month) {
-       a.className = 'choose'
-     }
-     td.appendChild(a)
      tr.appendChild(td)
      if (i === 0 || i % 7 === 0) {
        tbody.appendChild(tr)
