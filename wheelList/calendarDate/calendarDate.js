@@ -131,32 +131,44 @@ class CalendarDate {
           a.className = 'year-item'
           a.innerHTML = i
           div.appendChild(a)
+          a.addEventListener('click', function () {
+            date.year = this.innerHTML
+            that.justRight(date, right, left, 'animate')
+          })
         }
       }
       left.appendChild(div)
 
       // 往下年份
       downC.addEventListener('click', function () {
-        Array.of(that.query('.year-item'))[0].forEach(function (val) {
-          val.innerHTML = parseInt(val.innerHTML) + 9
-        })
+        // Array.of(that.query('.year-item'))[0].forEach(function (val) {
+        //   val.innerHTML = parseInt(val.innerHTML) + 9
+        // })
+        var goDown = that.query('.year-item')
+        for (var i = 0; i < goDown.length; i++) {
+          goDown[i].innerHTML = parseInt(goDown[i].innerHTML) + 9
+        }
       })
 
       // 网上
       upC.addEventListener('click', function () {
-        Array.of(that.query('.year-item'))[0].forEach(function (val) {
-          val.innerHTML = parseInt(val.innerHTML) - 9
-        })
+        // Array.of(that.query('.year-item'))[0].forEach(function (val) {
+        //   val.innerHTML = parseInt(val.innerHTML) - 9
+        // })
+        var goUp = that.query('.year-item')
+        for (var i = 0; i < goUp.length; i++) {
+          goUp[i].innerHTML = parseInt(goUp[i].innerHTML) - 9
+        }
       })
 
 
       // 年份被点击
-      Array.of(that.query('.year-item'))[0].forEach(function (val) {
-        val.addEventListener('click', function () {
-          date.year = this.innerHTML
-          that.justRight(date, right, left, 'animate')
-        })
-      })
+      // Array.of(that.query('.year-item'))[0].forEach(function (val) {
+        // val.addEventListener('click', function () {
+        //   date.year = this.innerHTML
+        //   that.justRight(date, right, left, 'animate')
+        // })
+      // })
     } else {
       this.show(this.query('.select-year', true))
     }
@@ -180,12 +192,20 @@ class CalendarDate {
     }
 
     // 月份选择
-    Array.of(that.query('.month-item'))[0].forEach(function (val, index) {
-      val.addEventListener('click', function () {
-        date.month = index + 1
+    // Array.of(that.query('.month-item'))[0].forEach(function (val, index) {
+    //   val.addEventListener('click', function () {
+        // date.month = index + 1
+        // that.justRight(date, right, left, 'animate')
+    //   })
+    // })
+    var goMonth = this.query('.month-item')
+    for (var i = 0; i < goMonth.length; i++) {
+      goMonth[i].addEventListener('click', function () {
+        var value = this.innerHTML
+        date.month = value.substring(0, value.length-1)
         that.justRight(date, right, left, 'animate')
       })
-    })
+    }
   }
    // 右边最初
   justRight (date, right, left, animate) {
