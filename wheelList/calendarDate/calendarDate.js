@@ -323,13 +323,13 @@ class CalendarDate {
        td.appendChild(a)
        a.addEventListener('click', function () {
          var weeks = ['一', '二', '三', '四', '五', '六', '日']
+         date.day = parseInt(this.innerHTML)
          var news = new Date(date.year + '/' + date.month + '/' + date.day)
          var newWeek = news.getDay()
          if (newWeek === 0) {
            newWeek = 7
          }
          date.week = weeks[newWeek - 1]
-         date.day = parseInt(this.innerHTML)
          that.justRight(date, right, left)
          that.justLeft(date, left, right)
        })
