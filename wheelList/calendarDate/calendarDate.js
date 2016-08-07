@@ -56,6 +56,9 @@ class CalendarDate {
     this.calendarDate.month = this.date.getUTCMonth() + 1
     this.calendarDate.day = this.date.getDate()
     this.calendarDate.week = weeks[this.date.getDay() - 1]
+    if (this.date.getDay() === 0) {
+      this.calendarDate.week=weeks[6]
+    }
     this.calendarDate.Alldays = this.days(this.calendarDate.year, this.calendarDate.month)
     var calendarDate = this.calendarDate
     // 左边绘制时间
