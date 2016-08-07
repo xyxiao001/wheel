@@ -255,6 +255,9 @@ class CalendarDate {
       date.month = now.getUTCMonth() + 1
       date.day = now.getDate()
       date.week = weeks[now.getDay() - 1]
+      if (now.getDay() === 0) {
+        date.week=weeks[6]
+      }
       date.Alldays = that.days(date.year, date.month)
       that.justRight(date, right, left, 'animate')
       that.justLeft(date, left, right)
