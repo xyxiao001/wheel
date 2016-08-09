@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>轮播</title>
+    <link rel="stylesheet" href="carousel.css" media="screen" title="no title" charset="utf-8">
+    <style type="text/css">
+      .content {
+        margin: auto;
+        width: 1500px;
+        height: 600px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="carousel">
+        <div class="carousel-show">
+          <img src="bg1.png" alt="" />
+          <img src="bg2.png" alt="" />
+          <img src="bg3.png" alt="" />
+          <img src="bg4.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="carousel.js"></script>
+    <script type="text/javascript">
+      var lunbo = new carousel()
+      lunbo.start()
+    </script>
+  </body>
+</html>
