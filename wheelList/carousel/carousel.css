@@ -14,12 +14,14 @@
   width: 100%;
   height: 100%;
   display: none;
+  opacity: 0.5;
   transition: all 1s ease-out;
 }
 
 .carousel-show img.now {
   top: 0;
   left: 0;
+  opacity: 1;
   display: block;
 }
 
