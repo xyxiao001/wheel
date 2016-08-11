@@ -1,0 +1,21 @@
+.carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  transition-property: all;
+}
+
+.carousel-show {
+  height: 100%;
+}
+
+.carousel-show a {
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-show a img {
+  height: 100%;
+}
