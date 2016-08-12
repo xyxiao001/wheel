@@ -53,6 +53,12 @@
       //   one = one + 40
       //   this.style.webkitTransform = 'rotateY('+ one +'deg)'
       // })
+      if (Notification.permission == "granted") {
+        var notification = new Notification("Hi，帅哥：", {
+          body: '可以加你为好友吗？',
+          icon: 'mm1.jpg'
+        })
+      }
     </script>
   </body>
 </html>
