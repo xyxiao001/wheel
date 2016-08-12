@@ -1,0 +1,23 @@
+body {
+  background-image: url('img/bg.jpg');
+  background-size: cover;
+}
+
+.icon {
+  display: inline-block;
+  margin: 50px;
+  width: 70px;
+  height: 74px;
+  cursor: pointer;
+  transition: all  .25s ease-out;
+}
+
+.icon img{
+  width: 100%;
+  height: 100%;
+}
+
+.icon:hover {
+  width: 80px;
+  height: 84px;
+}
