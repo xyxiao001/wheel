@@ -8,6 +8,7 @@
     <style type="text/css">
       .content {
         width: 1200px;
+        min-height: 200px;
         margin: auto;
       }
     </style>
@@ -42,6 +43,13 @@
         </div>
       </div>
     </div>
+
+    <div class="content content3">
+      <div class="scale">
+        <span class="scale-one">大</span>
+        <span class="scale-two">小</span>
+      </div>
+    </div>
     <script src="transfrom.js"></script>
     <script type="text/javascript">
       var photos = document.querySelectorAll('.photoShow .photo-item')
@@ -53,12 +61,6 @@
       //   one = one + 40
       //   this.style.webkitTransform = 'rotateY('+ one +'deg)'
       // })
-      if (Notification.permission == "granted") {
-        var notification = new Notification("Hi，帅哥：", {
-          body: '可以加你为好友吗？',
-          icon: 'mm1.jpg'
-        })
-      }
     </script>
   </body>
 </html>
