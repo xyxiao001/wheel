@@ -22,9 +22,9 @@ class carousel {
       show.style.height = carouselH
       show.addEventListener('mouseover', function () {
         self.stop()
-        show.addEventListener('mouseout', function () {
-          self.timeOut = setInterval(go, 1500)
-        })
+      })
+      show.addEventListener('mouseout', function () {
+        self.timeOut = setInterval(go, 1500)
       })
     })
     // 定时器函数
