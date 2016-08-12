@@ -1,7 +1,7 @@
 // header背景
 $(function() {
   if (!window.ActiveXObject && !!document.createElement("canvas").getContext) {
-    $.getScript("http://im-img.qq.com/pcqq/js/200/cav.js?_=1428576021379",
+    $.getScript("canvas.js",
     function() {
       var t = {
         width: 1.5,
