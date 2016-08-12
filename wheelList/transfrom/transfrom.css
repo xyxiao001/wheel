@@ -113,7 +113,6 @@
   display: inline-block;
   width: 200px;
   height: 150px;
-  border: 1px solid black;
 	box-shadow: 0 1px 3px rgba(0,0,0,.5);
 	-webkit-transition: opacity 1s, -webkit-transform 1s;
        -moz-transition: opacity 1s, -moz-transform 1s;
