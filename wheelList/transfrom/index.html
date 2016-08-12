@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>3d视角</title>
+    <link rel="stylesheet" href="transfrom.css" media="screen" title="no title" charset="utf-8">
+    <style type="text/css">
+      .content {
+        width: 1200px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="show show1">123  x</div>
+      <div class="show show2">123  y</div>
+      <div class="show show3">123  z</div>
+      <div class="show show4">123  x y z</div>
+    </div>
+
+    <div class="content content2">
+      <div class="photoShow">
+        <div class="photo-item">
+          <img src="https://pixabay.com/get/ef32b80f29f21c2ad65a5854e4444597e476eac818b516419cf8c478a3ed_640.jpg" alt="1" />
+        </div>
+        <div class="photo-item">
+          <img src="https://pixabay.com/get/ef32b80f29f01c2ad65a5854e4444597e476eac818b516419cf8c478a3ed_640.jpg" alt="2" />
+        </div>
+        <div class="photo-item">
+          <img src="https://pixabay.com/get/ef32b80f29f51c2ad65a5854e4444597e476eac818b516419cf8c478a3ed_640.jpg">
+        </div>
+        <div class="photo-item">
+          <img src="https://pixabay.com/get/e830b70829f3063ed95c4518b74e4e95e270e3dd04b0154695f9c97ca6e9b5_640.jpg">
+        </div>
+        <div class="photo-item">
+          <img src="https://pixabay.com/get/ed35b5062ef21c2ad65a5854e4444597e476eac818b516419cf8c478a3ed_640.jpg">
+        </div>
+        <div class="photo-item">
+          <img src="https://pixabay.com/get/e830b60921fc093ed95c4518b74e4e95e270e3dd04b0154695f9c97ca6e9b5_640.jpg">
+        </div>
+      </div>
+    </div>
+    <script src="transfrom.js"></script>
+    <script type="text/javascript">
+      var photos = document.querySelectorAll('.photoShow .photo-item')
+      photos.forEach(function (photo, index) {
+        photo.style.webkitTransform = 'rotateY('+ index * (360 / photos.length)+'deg) translateZ(300px)'
+      })
+      // var one = 0
+      // document.querySelector('.photoShow').addEventListener('click', function () {
+      //   one = one + 40
+      //   this.style.webkitTransform = 'rotateY('+ one +'deg)'
+      // })
+    </script>
+  </body>
+</html>
