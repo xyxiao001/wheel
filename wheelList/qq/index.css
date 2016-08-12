@@ -21,3 +21,61 @@ body {
   width: 80px;
   height: 84px;
 }
+
+.login {
+  position: absolute;
+  width: 430px;
+  height: 329px;
+  left: 50%;
+  top: 50%;
+  margin-left: -215px;
+  margin-top: -165px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.login-h {
+  position: relative;
+  width: 430px;
+  height: 181px;
+  overflow: hidden;
+}
+
+.login-h #container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.login-h .control {
+  position: absolute;
+  display: inline-block;
+  right: 0px;
+  color: white;
+  z-index: 9999;
+}
+
+.login-h .control a {
+  float: left;
+  width: 30px;
+  height: 25px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.login-h .control a.minus i {
+  padding-top: 3px;
+}
+
+.login-h .control a i {
+  font-weight: normal;
+}
+
+.login a:hover {
+  background-color: rgba(38, 120, 150, 0.6);
+}
+
+.login-h a.close:hover {
+  transition: all .3s ease-out;
+  background-color: #d44027;
+}

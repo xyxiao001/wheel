@@ -12,9 +12,10 @@ $(function() {
         xRange: 0.8,
         yRange: 0.1,
         zRange: 1,
-        ambient: "#525252",
+        //ambient: "#525252",
+        ambient: "2E2E2E",
         diffuse: "#FFFFFF",
-        speed: 0.0002
+        speed: 0.0006
       };
       var G = {
         count: 2,
