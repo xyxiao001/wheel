@@ -31,8 +31,8 @@ class carousel {
     function go() {
       //改变translate3d
       self.carouselShow.style.transitionDuration = '1500ms'
-      if (self.id > self.shows.length + 1) {
-        self.id = 1
+      if (self.id > self.shows.length) {
+        self.id = 0
         self.carouselShow.style.transitionDuration = '0ms'
       }
       self.carouselShow.style.webkitTransform = 'translate3d(' + -(self.carouselW * self.id) + 'px, 0px, 0px)'
