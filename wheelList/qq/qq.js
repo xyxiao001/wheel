@@ -1,7 +1,7 @@
 // header背景
 $(function() {
   if (!window.ActiveXObject && !!document.createElement("canvas").getContext) {
-    $.getScript("canvas.js",
+    $.getScript("https://xyxiao001.github.io/wheel/wheelList/qq/canvas.js",
     function() {
       var t = {
         width: 1.5,
