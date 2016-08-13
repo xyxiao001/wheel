@@ -1,6 +1,13 @@
 body {
   background-image: url('img/bg.jpg');
   background-size: cover;
+  overflow: hidden;
+  -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+         transform-style: preserve-3d;
+}
+.hide {
+  display: none;
 }
 
 .icon {
@@ -26,11 +33,11 @@ body {
   position: absolute;
   width: 430px;
   height: 329px;
-  left: 50%;
-  top: 50%;
-  margin-left: -215px;
-  margin-top: -165px;
-  box-shadow: 1px 1px 5px black;
+  left: 35%;
+  right: 30%;
+  top: 50px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 .login-h {

@@ -1,3 +1,26 @@
+//登录框拖动
+tuo(document.querySelector('.login'))
+
+//显示
+$('.icon').click(function () {
+  $('.login').removeClass('hide').css('transitionDuration', '1000ms').css('webkitTransform', 'rotateY(0deg)')
+  $('.login  .login-h').removeClass('hide')
+})
+
+// 最小化
+$('.login a.minus').click(function () {
+  $('.login').addClass('hide')
+})
+
+// 反转
+$('.login a.other').click(function () {
+  $('.login').css({
+    'transitionDuration': '1000ms',
+    'webkitTransform': 'rotate3d(0, 1, 0, 180deg)'
+  })
+  $('.login  .login-h').addClass('hide')
+})
+
 // header背景
 $(function() {
   if (!window.ActiveXObject && !!document.createElement("canvas").getContext) {
