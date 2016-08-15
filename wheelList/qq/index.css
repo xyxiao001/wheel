@@ -2,10 +2,10 @@ body {
   background-image: url('img/bg.jpg');
   background-size: cover;
   overflow: hidden;
-  -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-         transform-style: preserve-3d;
-         -webkit-perspective: 1900px;
+  perspective:15000;
+  perspective-origin: 10% 10%;
+  -webkit-perspective:15000;	/* Safari 和 Chrome */
+  -webkit-perspective-origin: 10% 10%;	/* Safari 和 Chrome */
 }
 .hide {
   display: none!important;
