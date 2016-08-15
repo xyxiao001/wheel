@@ -5,6 +5,7 @@ body {
   -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
          transform-style: preserve-3d;
+         -webkit-perspective: 1900px;
 }
 .hide {
   display: none!important;
