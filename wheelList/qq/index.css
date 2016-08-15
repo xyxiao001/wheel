@@ -33,9 +33,9 @@ body {
   position: absolute;
   width: 430px;
   height: 329px;
-  left: 35%;
-  right: 30%;
-  top: 50px;
+  left: 50%;
+  top: 100px;
+  margin-left: -215px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
