@@ -294,9 +294,9 @@ class CalendarDate {
     // 月份增加
     this.query('.right .go-right', true).addEventListener('click', function () {
       if (date.month < 12) {
-        date.month = date.month + 1
+        date.month = ~~(date.month) + 1
       } else {
-        date.year = date.year + 1
+        date.year = ~~(date.year) + 1
         date.month = 1
       }
       var weeks = ['一', '二', '三', '四', '五', '六', '日']
