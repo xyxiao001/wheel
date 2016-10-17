@@ -2,18 +2,18 @@
 class Verification {
   constructor() {
     const self = ''
-    this.box = document.querySelector('.v-box')
+    this.group = document.querySelector('.v-group')
     this.bg =  document.querySelector('.v-bg')
     this.bg.addEventListener('click', this.hideBox)
   }
   start() {
     self = this
-    this.addClass(this.box, 'v-show')
-    this.removeClass(this.box, 'v-hide')
+    this.addClass(this.group, 'v-show')
+    this.removeClass(this.group, 'v-hide')
   }
   hideBox() {
-    self.removeClass(self.box, 'v-show')
-    self.addClass(self.box, 'v-hide')
+    self.removeClass(self.group, 'v-show')
+    self.addClass(self.group, 'v-hide')
   }
   //addClass  实现
   addClass (el, name) {
