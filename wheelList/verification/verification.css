@@ -1,0 +1,28 @@
+.v-hide {
+  display: none;
+  opacity: 0;
+}
+
+.v-show {
+  display: block;
+  animation: 0.3s show-modal ease-out 1;
+}
+
+@keyframes show-modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.v-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>验证码</title>
+    <link rel="stylesheet" href="verification.css" media="screen" title="no title">
+    <style type="text/css">
+      button.submit {
+        display: inline-block;
+        border-color: #72C47C;
+        background-color: #72C47C;
+        border-radius: 4px;
+        padding: 0 15px;
+        min-width: 70px;
+        text-align: center;
+        outline: none;
+        color: white;
+        height: 40px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" name="button" class="submit">提交</button>
+    <div class="v-box v-hide">
+      <div class="v-bg"></div>
+    </div>
+    <script src="verification.js"></script>
+    <script type="text/javascript">
+      document.querySelector('.submit').addEventListener('click', function () {
+        //执行函数
+        var a = new Verification()
+        a.start()
+      })
+    </script>
+  </body>
+</html>
