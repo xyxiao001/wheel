@@ -5,6 +5,7 @@ class Verification {
     this.group = document.querySelector('.v-group')
     this.bg =  document.querySelector('.v-bg')
     this.bg.addEventListener('click', this.hideBox)
+    document.querySelector('.v-closed').addEventListener('click', this.hideBox)
   }
   start() {
     self = this
@@ -22,11 +23,11 @@ class Verification {
   // 添加新的
   var add = true
   // 判断添加的是否存在
-  for (var i = 0; i < list.length; i++) {
-    if (list[i] === name) {
+  list.forEach(function (val, index) {
+    if (list[index] === name) {
       add = false
     }
-  }
+  })
   if (add) {
     list.push(name)
   }
@@ -40,19 +41,12 @@ class Verification {
   // 获取到原有的class
   var list = el.getAttribute('class').split(' ')
   // 对比如果有一样的删除
-  for (var i = 0; i < list.length; i++) {
-    if (list[i] === name || list[i] === '') {
-      list.splice(i, 1)
+  list.forEach(function (val, index) {
+    if (list[index] === name || list[index] === '') {
+      list.splice(index, 1)
     }
-  }
+  })
   var newList = list.join(' ')
   el.className = newList
   }
 }
-
-// function Verification() {
-//
-// }
-//
-// Verification.prototype.start = function () {
-// }

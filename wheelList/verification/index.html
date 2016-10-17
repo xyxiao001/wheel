@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>验证码</title>
     <link rel="stylesheet" href="verification.css" media="screen" title="no title">
     <style type="text/css">
@@ -24,7 +25,14 @@
     <button type="button" name="button" class="submit">提交</button>
     <div class="v-group v-hide">
       <div class="v-bg"></div>
-
+      <div class="v-box">
+        <div class="v-header">
+          <div class="v-ready">请完成下方验证</div>
+          <div class="v-closed"></div>
+        </div>
+        <div class="v-body">
+        </div>
+      </div>
     </div>
     <script src="verification.js"></script>
     <script type="text/javascript">
