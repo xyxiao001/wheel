@@ -2,6 +2,7 @@
 class Verification {
   constructor() {
     const self = ''
+    this.left = 5
     this.group = document.querySelector('.v-group')
     this.bg = document.querySelector('.v-bg')
     this.control = document.querySelector('.s-control')
