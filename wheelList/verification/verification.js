@@ -13,7 +13,7 @@ class Verification {
     this.bg.addEventListener('click', this.hideBox)
     document.querySelector('.v-closed').addEventListener('click', this.hideBox)
     this.control.addEventListener('mousedown', this.go)
-    document.querySelector('body').addEventListener('mouseup', this.leave)
+    window.addEventListener('mouseup', this.leave)
   }
   start() {
     self = this
@@ -35,14 +35,14 @@ class Verification {
   go (event) {
     self.addClass(self.control, 'v-go')
     self.addClass(self.text, 'fade-out')
-    document.querySelector('body').addEventListener('mousemove', self.move)
+    window.addEventListener('mousemove', self.move)
     self.x = event.clientX
   }
   // 结束
   leave () {
     self.removeClass(self.control, 'v-go')
     self.removeClass(self.text, 'fade-out')
-    document.querySelector('body').removeEventListener('mousemove', self.move)
+    window.removeEventListener('mousemove', self.move)
     var other = self.end - self.left
     if (other >= -2 && other <= 2) {
       alert('验证通过')
@@ -53,7 +53,7 @@ class Verification {
       self.control.style.left = '0px'
       self.wStart.style.left = '0px'
     }
-    document.querySelector('body').removeEventListener('mousemove', self.move)
+    window.removeEventListener('mousemove', self.move)
   }
   // 移动
   move(event) {
