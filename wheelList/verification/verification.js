@@ -43,14 +43,14 @@ class Verification {
     self.removeClass(self.control, 'v-go')
     self.removeClass(self.text, 'fade-out')
     document.querySelector('body').removeEventListener('mousemove', self.move)
-    if (self.end !== self.left) {
+    if (self.end === self.left) {
+      alert('验证通过')
+      window.location.reload()
+    } else {
       self.control.style.transitionDuration = '1s'
       self.wStart.style.transitionDuration = '1s'
       self.control.style.left = '0px'
       self.wStart.style.left = '0px'
-    } else {
-      alert('验证通过')
-      window.location.reload()
     }
   }
   // 移动
