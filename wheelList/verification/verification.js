@@ -36,7 +36,7 @@ class Verification {
     self.addClass(self.control, 'v-go')
     self.addClass(self.text, 'fade-out')
     document.querySelector('body').addEventListener('mousemove', self.move)
-    self.x = event.clientX - event.offsetX
+    self.x = event.clientX + event.offsetX - 40
   }
   // 结束
   leave () {
