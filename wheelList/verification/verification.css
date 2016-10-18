@@ -10,7 +10,7 @@ html {
 
 .v-show {
   display: block;
-  animation: 0.3s show-modal ease-out 1;
+  animation: 0.2s show-modal ease-out 1;
 }
 
 @keyframes show-modal {
@@ -19,6 +19,19 @@ html {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.a-hide {
+  animation: 0.2s hide-modal ease-out 1;
+}
+
+@keyframes hide-modal {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -41,7 +54,7 @@ html {
   margin-top: -143px;
   top: 50%;
   left: 50%;
-  z-index: 999999;
+  z-index: 999;
   background-image: url('bg.png');
 }
 
@@ -112,6 +125,7 @@ html {
 }
 
 .w-show {
+  position: relative;
   width: 100%;
   height: 100%;
   background-image: url('1.png');
@@ -135,13 +149,17 @@ html {
   cursor: pointer;
   display: block;
   position: absolute;
-  left: 6px;
+  left: 5px;
   top: -9px;
   -moz-box-shadow: none;
   box-shadow: none;
   border-radius: 13px;
   z-index: 399;
   background-image: url('bg.png');
+}
+
+.v-go {
+  background-position: 0 -216px;
 }
 
 .s-text {
@@ -156,4 +174,36 @@ html {
   line-height: 28px;
   text-align: center;
   width: 220px;
+  transition: opacity 0.3s ease-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.w-start {
+  position: absolute;
+  width: 40px;
+  height: 35px;
+  background-color: red;
+  top: 20px;
+  left: 5px;
+  border: 1px solid red;
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: 0px 5px 4px black;
+  /*background-image: url('bg.png');*/
+}
+
+.w-end {
+  position: absolute;
+  width: 40px;
+  height: 35px;
+  left: 180px;
+  top: 20px;
+  border: 1px solid red;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: 0px 5px 4px black;
 }
