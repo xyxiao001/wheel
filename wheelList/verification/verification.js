@@ -50,6 +50,7 @@ class Verification {
       self.wStart.style.left = '0px'
     } else {
       alert('验证通过')
+      window.location.reload()
     }
   }
   // 移动
