@@ -53,6 +53,7 @@ class Verification {
       self.control.style.left = '0px'
       self.wStart.style.left = '0px'
     }
+    document.querySelector('body').removeEventListener('mousemove', self.move)
   }
   // 移动
   move(event) {
