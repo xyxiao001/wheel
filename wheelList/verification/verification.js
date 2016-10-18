@@ -36,14 +36,15 @@ class Verification {
     self.addClass(self.control, 'v-go')
     self.addClass(self.text, 'fade-out')
     document.querySelector('body').addEventListener('mousemove', self.move)
-    self.x = event.clientX + event.offsetX - 40
+    self.x = event.clientX
   }
   // 结束
   leave () {
     self.removeClass(self.control, 'v-go')
     self.removeClass(self.text, 'fade-out')
     document.querySelector('body').removeEventListener('mousemove', self.move)
-    if (self.end === self.left) {
+    var other = self.end - self.left
+    if (other >= -2 && other <= 2) {
       alert('验证通过')
       window.location.reload()
     } else {
