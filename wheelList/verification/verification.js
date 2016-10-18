@@ -57,6 +57,7 @@ class Verification {
   }
   // 移动
   move(event) {
+    event.preventDefault()
     self.control.style.transitionDuration = '0s'
     self.wStart.style.transitionDuration = '0s'
     self.end = ~~(event.clientX - self.x)
