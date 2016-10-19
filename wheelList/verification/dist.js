@@ -47,14 +47,14 @@ var Verification = function () {
     value: function hideBox() {
       self.removeClass(self.group, 'v-show');
       self.addClass(self.group, 'a-hide');
-      document.querySelector('.a-hide').addEventListener('animationend', self.animateHide);
+      document.querySelector('.a-hide').addEventListener('webkitAnimationEnd', self.animateHide);
     }
     // 消失动画
 
   }, {
     key: 'animateHide',
     value: function animateHide() {
-      document.querySelector('.a-hide').removeEventListener('animationend', self.animateHide);
+      document.querySelector('.a-hide').removeEventListener('webkitAnimationEnd', self.animateHide);
       self.removeClass(self.group, 'a-hide');
       self.addClass(self.group, 'v-hide');
     }
