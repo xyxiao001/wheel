@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>分享到朋友圈</title>
+    <style type="text/css">
+      button.go-share {
+        display: inline-block;
+        border-color: #72C47C;
+        background-color: #72C47C;
+        border-radius: 4px;
+        padding: 0 15px;
+        min-width: 70px;
+        text-align: center;
+        outline: none;
+        color: white;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .share-bg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: black;
+        opacity: 0.6;
+      }
+
+      .v-show {
+        display: block;
+        animation: 0.2s show-modal ease-out 1;
+      }
+
+      @keyframes show-modal {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .v-hide {
+        display: none;
+        opacity: 0;
+      }
+
+      .v-img {
+        position: absolute;
+        z-index: 999;
+        top: 20px;
+        right: 20px;
+      }
+
+      .v-share p {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" name="button" class="go-share">分享</button>
+    <!-- 分享层 -->
+    <div class="v-share v-hide">
+      <div class="share-bg"></div>
+      <img src="go.png"  class="v-img" alt="" />
+      <p>点击右上角分享到朋友圈</p>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <script type="text/javascript">
+    $('.go-share').click(function() {
+      $('.v-share').removeClass('v-hide').addClass('v-show')
+    })
+
+    $('.v-share').click(function () {
+      $('.v-share').removeClass('v-show').addClass('v-hide')
+    })
+    </script>
+  </body>
+</html>
