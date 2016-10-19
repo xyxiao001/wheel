@@ -13,6 +13,7 @@ var Verification = function () {
     this.left = 0;
     this.top = 0;
     this.end = 0;
+    this.set = '';
     this.group = document.querySelector('.v-group');
     this.bg = document.querySelector('.v-bg');
     this.control = document.querySelector('.s-control');
@@ -48,12 +49,14 @@ var Verification = function () {
       self.removeClass(self.group, 'v-show');
       self.addClass(self.group, 'a-hide');
       document.querySelector('.a-hide').addEventListener('webkitAnimationEnd', self.animateHide);
+      self.set = setTimeout(self.animateHide, 200)
     }
     // 消失动画
 
   }, {
     key: 'animateHide',
     value: function animateHide() {
+      clearTimeout(self.set)
       document.querySelector('.a-hide').removeEventListener('webkitAnimationEnd', self.animateHide);
       self.removeClass(self.group, 'a-hide');
       self.addClass(self.group, 'v-hide');
