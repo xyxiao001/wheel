@@ -29,7 +29,8 @@ class Verification {
     this.top = parseInt(Math.random()*50 + 10)
     this.wStart.style.top = this.top + 'px'
     this.wEnd.style.top = this.top + 'px'
-
+    // 设置小块背景图
+    this.wStart.style.backgroundPosition = ~(this.left) + 'px' + ' ' + ~(this.top) + 'px'
   }
   hideBox() {
     self.removeClass(self.group, 'v-show')

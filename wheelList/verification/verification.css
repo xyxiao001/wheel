@@ -186,16 +186,16 @@ html {
   position: absolute;
   width: 40px;
   height: 35px;
-  background-color: red;
   top: 20px;
   left: 0px;
   border: 1px solid red;
-  opacity: 0.8;
+  opacity: 1;
   border-radius: 10px;
   box-shadow: 0px 5px 4px black;
   z-index: 1001;
   transition: transform 1s ease-out;
-  /*background-image: url('bg.png');*/
+  background-image: url('1.png');
+  background-position: 0px 0px;
 }
 
 .w-end {
@@ -206,7 +206,7 @@ html {
   top: 20px;
   border: 1px solid red;
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 10px;
   box-shadow: 0px 5px 4px black;
   z-index: 1000;
