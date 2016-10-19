@@ -54,8 +54,8 @@ class Verification {
     } else {
       self.control.style.transitionDuration = '1s'
       self.wStart.style.transitionDuration = '1s'
-      self.control.style.left = '0px'
-      self.wStart.style.left = '0px'
+      self.control.style.transform = 'translate3d(0, 0, 0)'
+      self.wStart.style.transform = 'translate3d(0, 0, 0)'
     }
   }
   // 移动
@@ -66,8 +66,8 @@ class Verification {
     self.wStart.style.transitionDuration = '0s'
     self.end = parseInt( nowX - self.x)
     if (self.end > 0 && self.end < 220) {
-      self.control.style.left = self.end + 'px'
-      self.wStart.style.left = self.end + 'px'
+      self.control.style.transform = 'translate3d(' + self.end + 'px, 0, 0)'
+      self.wStart.style.transform =  'translate3d(' + self.end + 'px, 0, 0)'
     }
   }
 

@@ -156,7 +156,7 @@ html {
   border-radius: 13px;
   z-index: 399;
   background-image: url('bg.png');
-  transition: left 1s ease-out;
+  transition: transform 1s ease-out;
 }
 
 .v-go {
@@ -194,7 +194,7 @@ html {
   border-radius: 10px;
   box-shadow: 0px 5px 4px black;
   z-index: 1001;
-  transition: left 1s ease-out;
+  transition: transform 1s ease-out;
   /*background-image: url('bg.png');*/
 }
 
