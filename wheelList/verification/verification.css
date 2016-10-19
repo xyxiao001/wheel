@@ -3,6 +3,10 @@ html {
    "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 
+a {
+  outline: none;
+}
+
 .v-hide {
   display: none;
   opacity: 0;
