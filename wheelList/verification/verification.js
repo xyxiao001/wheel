@@ -3,13 +3,15 @@ class Verification {
   constructor() {
     const self = ''
     this.x = 0
-    this.left = 180
+    this.left = 0
+    this.top = 0
     this.end = 0
     this.group = document.querySelector('.v-group')
     this.bg = document.querySelector('.v-bg')
     this.control = document.querySelector('.s-control')
     this.text = document.querySelector('.s-text')
     this.wStart = document.querySelector('.w-start')
+    this.wEnd = document.querySelector('.w-end')
     this.bg.addEventListener('click', this.hideBox)
     document.querySelector('.v-closed').addEventListener('click', this.hideBox)
     this.control.addEventListener('mousedown', this.go)
@@ -21,6 +23,13 @@ class Verification {
     self = this
     this.addClass(this.group, 'v-show')
     this.removeClass(this.group, 'v-hide')
+    // 随机生成位置
+    this.left = parseInt(Math.random()*100 + 100)
+    this.wEnd.style.left = this.left + 'px'
+    this.top = parseInt(Math.random()*50 + 10)
+    this.wStart.style.top = this.top + 'px'
+    this.wEnd.style.top = this.top + 'px'
+
   }
   hideBox() {
     self.removeClass(self.group, 'v-show')
