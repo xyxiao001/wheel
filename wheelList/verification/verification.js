@@ -13,7 +13,9 @@ class Verification {
     this.bg.addEventListener('click', this.hideBox)
     document.querySelector('.v-closed').addEventListener('click', this.hideBox)
     this.control.addEventListener('mousedown', this.go)
+    this.control.addEventListener('touchstart', this.go)
     window.addEventListener('mouseup', this.leave)
+    window.addEventListener('touchend', this.leave)
   }
   start() {
     self = this
@@ -36,13 +38,15 @@ class Verification {
     self.addClass(self.control, 'v-go')
     self.addClass(self.text, 'fade-out')
     window.addEventListener('mousemove', self.move)
-    self.x = event.clientX
+    window.addEventListener('touchmove', self.move)
+    self.x = event.clientX ? event.clientX : event.touches[0].clientX
   }
   // 结束
   leave () {
     self.removeClass(self.control, 'v-go')
     self.removeClass(self.text, 'fade-out')
     window.removeEventListener('mousemove', self.move)
+    window.removeEventListener('touchmove', self.move)
     var other = self.end - self.left
     if (other >= -2 && other <= 2) {
       alert('验证通过')
@@ -53,14 +57,14 @@ class Verification {
       self.control.style.left = '0px'
       self.wStart.style.left = '0px'
     }
-    window.removeEventListener('mousemove', self.move)
   }
   // 移动
   move(event) {
     event.preventDefault()
+    var nowX = event.clientX ? event.clientX : event.touches[0].clientX
     self.control.style.transitionDuration = '0s'
     self.wStart.style.transitionDuration = '0s'
-    self.end = ~~(event.clientX - self.x)
+    self.end = parseInt( nowX - self.x)
     if (self.end > 0 && self.end < 220) {
       self.control.style.left = self.end + 'px'
       self.wStart.style.left = self.end + 'px'
