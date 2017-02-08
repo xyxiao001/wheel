@@ -101,7 +101,7 @@ function showInfo(e){
 map.addEventListener("click", showInfo);
 
 // 文本框输入情况
-query('#demand').addEventListener('keydown', showDemand)
+query('#demand').addEventListener('keyup', showDemand)
 function showDemand() {
   query('.demand-now').innerHTML = query('#demand').value.length
 }
