@@ -52,7 +52,7 @@ map.on('click', function(e) {
         radius: 1000 //范围，默认：500
     });
     //地理编码,返回地理编码结果
-    geocoder.getLocation((e.lnglat.getLng(), e.lnglat.getLat()), function(status, result) {
+    geocoder.getLocation('北京市海淀区苏州街', function(status, result) {
         if (status === 'complete' && result.info === 'OK') {
             //geocoder_CallBack(result);
         }
