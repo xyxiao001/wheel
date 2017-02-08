@@ -45,6 +45,20 @@ function onError(data) {
     alert('定位失败');
 }
 
+map.on('click', function(e) {
+    // alert('您在[ '+ e.lnglat.getLng()+','+ e.lnglat.getLat() +' ]的位置点击了地图！');
+    var geocoder = new AMap.Geocoder({
+        city: "010", //城市，默认：“全国”
+        radius: 1000 //范围，默认：500
+    });
+    //地理编码,返回地理编码结果
+    geocoder.getLocation((e.lnglat.getLng(), e.lnglat.getLat()), function(status, result) {
+        if (status === 'complete' && result.info === 'OK') {
+            //geocoder_CallBack(result);
+        }
+    });
+});
+
 // 表单校验
 var query = function (i) {
   return document.querySelector(i)
