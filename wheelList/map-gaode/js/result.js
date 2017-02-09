@@ -21,3 +21,8 @@ var marker = new AMap.Marker({  //加点
 map.setFitView();
 
 query('#demand').value = '希望知道下城区长庆街道青云街47号现在堵不堵车。。'
+// 文本框输入情况
+query('#result-text').addEventListener('keyup', showDemand);
+function showDemand() {
+  query('.result-now').innerHTML = query('#result-text').value.length;
+}
