@@ -45,26 +45,37 @@ function onError(data) {
     alert('定位失败');
 }
 
+var marker;
 map.on('click', function(e) {
     // alert('您在[ '+ e.lnglat.getLng()+','+ e.lnglat.getLat() +' ]的位置点击了地图！');
-    var geocoder = new AMap.Geocoder({
-        city: "010", //城市，默认：“全国”
-        radius: 1000 //范围，默认：500
-    });
+    var lnglatXY = [e.lnglat.getLng(), e.lnglat.getLat()];
+    var geocoder = new AMap.Geocoder({});
     //地理编码,返回地理编码结果
-    geocoder.getLocation('北京市海淀区苏州街', function(status, result) {
+    geocoder.getAddress(lnglatXY, function(status, result) {
         if (status === 'complete' && result.info === 'OK') {
-            //geocoder_CallBack(result);
+          // geocoder_CallBack(result);
+          // console.log(result);
+          query('#suggestId').value = result.regeocode.formattedAddress
         }
     });
+    if (marker !== undefined) {
+      marker.hide()
+    }
+    marker = new AMap.Marker({  //加点
+        map: map,
+        draggable: false, // 是否可以拖拽,
+        // animation: 'AMAP_ANIMATION_DROP',
+        position: lnglatXY
+    });
+    map.setFitView();
 });
 
 // 表单校验
 var query = function (i) {
-  return document.querySelector(i)
+  return document.querySelector(i);
 }
 // 文本框输入情况
-query('#demand').addEventListener('keyup', showDemand)
+query('#demand').addEventListener('keyup', showDemand);
 function showDemand() {
-  query('.demand-now').innerHTML = query('#demand').value.length
+  query('.demand-now').innerHTML = query('#demand').value.length;
 }
