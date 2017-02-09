@@ -107,6 +107,9 @@ function rule() {
   if (phone.length === 0) {
     msg = '手机不能为空'
     return true
+  } else if (phone.length !== 11) {
+    msg = '请输入正确的手机号码'
+    return true
   }
   if (demand.length === 0) {
     msg = '需求描述不能为空'
