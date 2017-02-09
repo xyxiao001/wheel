@@ -76,3 +76,40 @@ query('#demand').addEventListener('keyup', showDemand);
 function showDemand() {
   query('.demand-now').innerHTML = query('#demand').value.length;
 }
+
+query('#submit').addEventListener('click', submit);
+var msg = 'error'
+function submit() {
+  // 表单提交
+  if(rule()) {
+    query('.weui-toptips_warn').style.display = "block"
+    query('.weui-toptips_warn').innerHTML = msg
+    setTimeout(function () {
+      query('.weui-toptips_warn').style.display = "none"
+    }, 1000)
+  }
+}
+
+// 校验规则
+function rule() {
+  var adress = query('#suggestId').value.replace(/(^\s*)|(\s*$)/g, '')
+  var name = query('#name').value.replace(/(^\s*)|(\s*$)/g, '')
+  var phone = query('#phone').value.replace(/(^\s*)|(\s*$)/g, '')
+  var demand = query('#demand').value.replace(/(^\s*)|(\s*$)/g, '')
+  if (adress.length === 0) {
+    msg = '地址不能为空'
+    return true
+  }
+  if (name.length === 0) {
+    msg = '姓名不能为空'
+    return true
+  }
+  if (phone.length === 0) {
+    msg = '手机不能为空'
+    return true
+  }
+  if (demand.length === 0) {
+    msg = '需求描述不能为空'
+    return true
+  }
+}

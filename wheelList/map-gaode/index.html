@@ -12,6 +12,7 @@
   	<title>你需要发布什么需求？</title>
   </head>
   <body>
+    <div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;">错误提示</div>
     <div class="weui-cells weui-cells_form show-demand">
       <div id="l-map"></div>
       <div class="weui-cell">
@@ -25,14 +26,14 @@
         <div class="weui-cell__hd"><label class="weui-label">姓名</label>
         </div>
         <div class="weui-cell__bd">
-          <input class="weui-input" type="text" placeholder="请输入姓名">
+          <input class="weui-input" type="text" id="name" placeholder="请输入姓名">
         </div>
       </div>
       <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label">手机号</label>
         </div>
         <div class="weui-cell__bd">
-          <input class="weui-input" type="tel" placeholder="请输入手机号">
+          <input class="weui-input" type="tel" id="phone" placeholder="请输入手机号">
         </div>
       </div>
     </div>
@@ -46,7 +47,7 @@
       </div>
     </div>
     <div class="weui-btn-area">
-      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+      <a class="weui-btn weui-btn_primary" id="submit">确定</a>
     </div>
     <script src="./js/index.js"></script>
   </body>
