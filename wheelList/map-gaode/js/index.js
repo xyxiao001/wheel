@@ -53,8 +53,6 @@ map.on('click', function(e) {
     //地理编码,返回地理编码结果
     geocoder.getAddress(lnglatXY, function(status, result) {
         if (status === 'complete' && result.info === 'OK') {
-          // geocoder_CallBack(result);
-          // console.log(result);
           query('#suggestId').value = result.regeocode.formattedAddress
         }
     });
@@ -64,7 +62,6 @@ map.on('click', function(e) {
     marker = new AMap.Marker({  //加点
         map: map,
         draggable: false, // 是否可以拖拽,
-        // animation: 'AMAP_ANIMATION_DROP',
         position: lnglatXY
     });
     map.setFitView();
