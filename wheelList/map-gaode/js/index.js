@@ -3,6 +3,8 @@
 var map = new AMap.Map("l-map", {
     resizeEnable: true
 });
+// 保存经度纬度
+var lnglatXY;
 //输入提示
 var autoOptions = {
     input: "suggestId"
@@ -48,7 +50,7 @@ function onError(data) {
 var marker;
 map.on('click', function(e) {
     // alert('您在[ '+ e.lnglat.getLng()+','+ e.lnglat.getLat() +' ]的位置点击了地图！');
-    var lnglatXY = [e.lnglat.getLng(), e.lnglat.getLat()];
+    lnglatXY = [e.lnglat.getLng(), e.lnglat.getLat()];
     var geocoder = new AMap.Geocoder({});
     //地理编码,返回地理编码结果
     geocoder.getAddress(lnglatXY, function(status, result) {
