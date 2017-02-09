@@ -9,17 +9,25 @@
     <script type="text/javascript"
      src="http://webapi.amap.com/maps?v=1.3&key=0998f5cba6098560faca31403f3e4616&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
-  	<title>你需要发布什么需求？</title>
+  	<title>确定回复需求吗？</title>
   </head>
   <body>
     <div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;">错误提示</div>
     <div class="weui-cells weui-cells_form show-demand">
       <div id="l-map"></div>
       <div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label">地址</label>
+        <div class="weui-cell__hd"><label class="weui-label">目标地址</label>
         </div>
         <div class="weui-cell__bd">
-          <input class="weui-input" type="text" id="suggestId" placeholder="直接输入地址或者点击地图">
+          <input class="weui-input" type="text" id="result-adress" disabled="disabled"  readonly="readonly">
+        </div>
+      </div>
+      <div class="weui-cells__title">目标需求</div>
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <textarea class="weui-textarea" id="demand"  rows="3"></textarea>
+          </div>
         </div>
       </div>
       <div class="weui-cell">
@@ -36,19 +44,19 @@
           <input class="weui-input" type="tel" id="phone" placeholder="请输入手机号">
         </div>
       </div>
-    </div>
-    <div class="weui-cells__title">需求</div>
-    <div class="weui-cells weui-cells_form">
-      <div class="weui-cell">
-        <div class="weui-cell__bd">
-            <textarea class="weui-textarea" id="demand" placeholder="请输入你的详细需求" rows="3"></textarea>
-            <div class="weui-textarea-counter"><span class="demand-now">0</span>/200</div>
+      <div class="weui-cells__title">内容回复</div>
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <textarea class="weui-textarea" id="result-text"  rows="3"></textarea>
+              <div class="weui-textarea-counter"><span class="demand-now">0</span>/200</div>
+          </div>
         </div>
       </div>
     </div>
     <div class="weui-btn-area">
       <a class="weui-btn weui-btn_primary" id="submit">确定</a>
     </div>
-    <script src="./js/index.js"></script>
+    <script src="./js/result.js"></script>
   </body>
 </html>
