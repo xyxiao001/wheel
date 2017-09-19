@@ -39,7 +39,6 @@
     <canvas id="gameCanvas" width="640px" height="1136px"></canvas>
 </div>
 <script src="js/meiriq_game.js?v1.3"></script>
-<!-- <script src="68wei_loading.js"></script> -->
 
 
 <script>
@@ -54,17 +53,8 @@
     function isMobile(){
     return navigator.userAgent.match(/android|iphone|ipad|ipod|blackberry|meego|symbianos|windowsphone|ucbrowser/i);
     }
-    if(isMobile()){
-        setTimeout(function(){
-             play_load.finish();
-        },4000);
-    }else{
-        setTimeout(function(){
-             play_load.finish();
-        },1000);
-    }
+    play_load.finish();
 
 </script>
-<script type="text/JavaScript" src="http://gc.veiying.cn/code"></script>
 </body>
 </html>
